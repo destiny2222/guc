@@ -1,0 +1,306 @@
+{%  extends 'include/base.html' %}
+{% load static %}
+{%  block content %}
+
+  <main> 
+    <div class="slider-area">
+      <div class="slider-active">
+        <div class="single-slider slider-height d-flex align-items-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-xl-7 col-lg-7 col-md-6">
+                <div class="hero__caption">
+                  <span data-animation="fadeInUp" data-delay=".4s"> Meet </span>
+                  <h1 data-animation="fadeInUp" data-delay=".6s">
+                    Prof. C.u.c ugorji
+                  </h1>
+                  <p data-animation="fadeInUp" data-delay=".8s">
+                    A Full Professor of Linguistics and English Language. 
+                    has worked as a teacher, lecturer, and researcher for
+                    more than 30 years in Africa and Europe. An eminent
+                    collaborator in institution-funded research groups, including
+                    the International Corpus of English (ICE) hosted in Germany,
+                    especially in eliciting data and editing the electronic corpora
+                    documentation; and the international Corpho Group (corpus
+                    phonology group) I have contributed to English studies in
+                    international contexts, including Germany and Poland.
+                  </p>
+                  <div class="hero__btn">
+                    <a href="profile.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s"> About Me </a>
+                    <a href="consulting.html" class="btn border-btn ml-15" data-animation="fadeInRight"
+                       data-delay="1.0s"> Hire Me </a>
+                  </div>
+                </div>
+              </div> 
+              
+              <div class="col-12 col-xl-5 col-lg-5 col-md-6">
+                <div class="about-caption2">
+                  <img src="/static/assets/img/prof5.jpg" class="img" alt="Prof. C.U.C Ugorji">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Achievements and Positions -->
+    <section class="about-area section-paddingt8">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="about-caption mb-3">
+              <h3 class="text-center"> Specific Posiitions and Achievements </h3>
+              <p class="pera1 text-left">
+                <strong> Founding Editor: </strong>  Coaxial Journal of Linguistics Studies; <strong> Editor-in-Chief: </strong> Journal of the Association of Phonetics and Phonology in Nigeria; 
+                <strong> Member, UAB, </strong> Senate committee; 
+                <strong> Senate Representative </strong> on the Business Committee of Senate; 
+                <strong> Member, </strong> Faculty of Arts Management, University of Benin; 
+                <strong> Member, Corpus linguistics lesearch: </strong> the International Corpus of English (ICE) Project, University of Augsburg, Germany;
+                
+                <strong> Advanced TESOL Certificate, </strong> American TESOL Institute, Florida, USA;
+                <strong> PhD English Linguistics, </strong> Faculty of English, Adam M. Univ. Poznan, Poland (2009);
+                <strong> MA Linguistics, Faculty of English,</strong> Adam M. University, Poznan, Poland (2006);
+                <strong> MA Applied Linguistics and Language Teaching, </strong> Univ. of Nigeria, Nigeria (1990);
+                <strong> BA (Hons) Linguistics and Igbo, </strong> Univ. of Nigeria, Nigeria (1987);
+                <br>
+                <strong> Postgraduate Students’ supervision:  </strong><br>
+                <strong> Germany: </strong> School of Applied English Linguistics, University of Augsburg;
+                <strong>Poland: </strong> Faculty of English, Adam M. University, Poznan, Poland Undergraduate Teaching:
+                <strong> TESOL [Teaching English to Speakers of Other Languages] in Language Schools:  </strong>
+                      Centrum Edukacji i Turystyki “Sokrates” Swarzedz, Poland L2 Language Consulting, Warsaw, Poland;
+                      <strong> Nigeria: </strong>  Dept. of Linguistics Studies, University of Benin;
+                      <strong> Nigeria: </strong>  Dept. of English and Literary Studies, Univ. of Benin;
+
+              </p>
+            </div>  
+            <div class="hero__btn text-center">
+              <a href="profile.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s"> DOWNLOAD FULL PROFILE </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+
+    <section class="blog_area pt-50">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-4">
+             <h2 style="font-size:45px;
+             font-weight: 700;
+             color: #002d5b;
+             line-height: 1.2;
+             text-transform: capitalize;
+             margin-bottom: 29px;"> My Publications</h2>
+          </div> 
+        </div>
+        <div class="row">
+
+          {% for i in step %}
+          <div class="col-12 col-lg-4 mb-4">
+            <div class="blog_left_sidebar">
+              <article class="blog_item">
+                <div class="blog_item_img">
+                  <img class="card-img rounded-0" src="{{  i.image.url }}" alt="">
+                </div>
+                <div class="blog_details">
+                  <a class="d-inline-block" href="">
+                    <h2>{{ i.name|truncatechars:100 }}</h2>
+                  </a>
+                  <p>{{  i.description|truncatechars:100  }}</p>
+                    <div class="rate" style="margin: 0%;">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <ul class="blog-info-link">
+                      <li><a href="#">&#8358;{{ i.price }}</a></li>
+                      <li><a href="#">&#36;{{  i.dollar_price }}</a></li>
+                    </ul>
+                    <div class="mt-4 add_to_cart" style="margin-top:5%;">
+                      <a href="{% url 'index:details' i.slug %}">more details</a>
+                    </div> 
+                </div>
+              </article>
+            </div>
+          </div>
+          {%  endfor %}
+        </div>
+      </div>
+    </section>
+
+
+    <section class="wantToWork-area w-padding2">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-xl-6 col-lg-8 col-md-8">
+            <div class="wantToWork-caption wantToWork-caption2">
+              <h2>Dont worry for contact i`m available</h2>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-3">
+            <a href="#" class="btn btn-black f-right">Contact Me Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="client-comments section-paddingt30">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-8 col-md-10">
+            <div class="section-tittle mb-70">
+              <h2>Some Possitive Feedback That Encourage Us</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="latest-blog-area">
+        <div class="container">
+          <div class="custom-row">
+            <div class="blog-active">
+              <div class="col-xl-4">
+                <div class="blog-wrapper">
+                  <div class="blog-inner">
+                    <div class="blog-top">
+                      <div class="person-img">
+                        <img src="/static/assets/img/gallery/xblog1.png.pagespeed.ic.l7p-SeSTKU.png" alt="" />
+                      </div>
+                      <div class="comment-person">
+                        <h2>Bradley Erickson</h2>
+                        <span>UI/UX Designer</span>
+                      </div>
+                    </div>
+                    <p>
+                      Consectetur adipisicing elit, seddosdoe eiusmod tempor
+                      incididunt utore etstes dolore magna aliqua. Ut imminim
+                      restai veniam, quis nostrud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4">
+                <div class="blog-wrapper">
+                  <div class="blog-inner">
+                    <div class="blog-top">
+                      <div class="person-img">
+                        <img src="/static/assets/img/gallery/xblog2.png.pagespeed.ic.wYgh_nsDc6.png" alt="" />
+                      </div>
+                      <div class="comment-person">
+                        <h2>Bradley Erickson</h2>
+                        <span>UI/UX Designer</span>
+                      </div>
+                    </div>
+                    <p>
+                      Consectetur adipisicing elit, seddosdoe eiusmod tempor
+                      incididunt utore etstes dolore magna aliqua. Ut imminim
+                      restai veniam, quis nostrud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4">
+                <div class="blog-wrapper">
+                  <div class="blog-inner">
+                    <div class="blog-top">
+                      <div class="person-img">
+                        <img src="/static/assets/img/gallery/xblog3.png.pagespeed.ic.Xz3nLAiMjy.png" alt="" />
+                      </div>
+                      <div class="comment-person">
+                        <h2>Bradley Erickson</h2>
+                        <span>UI/UX Designer</span>
+                      </div>
+                    </div>
+                    <p>
+                      Consectetur adipisicing elit, seddosdoe eiusmod tempor
+                      incididunt utore etstes dolore magna aliqua. Ut imminim
+                      restai veniam, quis nostrud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-4">
+                <div class="blog-wrapper">
+                  <div class="blog-inner">
+                    <div class="blog-top">
+                      <div class="person-img">
+                        <img src="/static/assets/img/gallery/xblog2.png.pagespeed.ic.wYgh_nsDc6.png" alt="" />
+                      </div>
+                      <div class="comment-person">
+                        <h2>Bradley Erickson</h2>
+                        <span>UI/UX Designer</span>
+                      </div>
+                    </div>
+                    <p>
+                      Consectetur adipisicing elit, seddosdoe eiusmod tempor
+                      incididunt utore etstes dolore magna aliqua. Ut imminim
+                      restai veniam, quis nostrud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <div class="brand-area pb-bottom">
+      <div class="container">
+        <div class="brand-active brand-border pt-50 pb-40">
+          <div class="single-brand">
+            <img src="assets/img/gallery/xbrand1.png.pagespeed.ic.ChDO9qAcIi.png" alt="" />
+          </div>
+          <div class="single-brand">
+            <img src="assets/img/gallery/xbrand2.png.pagespeed.ic.LQ-hFM6-gO.png" alt="" />
+          </div>
+          <div class="single-brand">
+            <img src="assets/img/gallery/xbrand3.png.pagespeed.ic.7SAsMCs5j8.png" alt="" />
+          </div>
+          <div class="single-brand">
+            <img src="assets/img/gallery/xbrand4.png.pagespeed.ic.ou4r2W5_Df.png" alt="" />
+          </div>
+          <div class="single-brand">
+            <img src="assets/img/gallery/xbrand2.png.pagespeed.ic.LQ-hFM6-gO.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="contact-info-area w-padding2" data-background="assets/img/gallery/section_bg04.jpg">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-xl-5 col-lg-7">
+            <div class="contact-caption mb-50">
+              <h3>If Not Now, When? Let’s Work Together!</h3>
+              <p>
+                Consectetur adipiscing elit, sed do eiusmod tempor ididunt ut
+                labore et dolore magna aliqua. Quis ipsum suspendisces
+                gravida. Risus commodo viverra.
+              </p>
+              
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-5">
+            <form action="#" class="contact-wrapper">
+              <input type="text" name="name" placeholder="Full Name" />
+              <input type="email" name="email" placeholder="Email Address" />
+              <textarea name="message" id="message" placeholder="Your Message"></textarea>
+              <button class="submit-btn2" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  {%  endblock %}

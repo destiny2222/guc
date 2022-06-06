@@ -1,0 +1,21 @@
+sub = "Website Inquiry" 
+				body = {
+					'name': form.cleaned_data['name'], 
+					'subject': form.cleaned_data['subject'], 
+					'email': form.cleaned_data['email'], 
+					'message':form.cleaned_data['message'], 
+				}
+				message = "\n".join(body.values())
+			try:
+				send_mail(sub, message, 'text33131@gmail.com', ['text33131@gmail.com'])
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+
+
+
+                name = f.cleaned_data['name']
+            sender = f.cleaned_data['email']
+            subject = "You have a new Feedback for Consulting {}:{}".format(name, sender) 
+            message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['email'], f.cleaned_data['message'])
+            send_mail(subject, message, 'text33131@gmail.com', ['text33131@gmail.com'])
+            f.save()

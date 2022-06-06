@@ -1,0 +1,57 @@
+{%  extends 'include/base.html' %}
+{% load static %}
+{%  block content %}
+
+
+
+  <main>
+
+    <div class="slider-area ">
+      <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="hero-cap">
+                <h2>Consulting</h2>
+                <nav aria-label="breadcrumb ">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index:home' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void()">Consulting</a></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-info-area w-padding2" data-background="assets/img/gallery/section_bg04.jpg">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-xl-5 col-lg-7">
+            <div class="contact-caption mb-50">
+              <h3>If Not Now, When? Let’s Work Together!</h3>
+              <p>
+                Consectetur adipiscing elit, sed do eiusmod tempor 
+                ididunt ut labore et dolore magna aliqua. Quis ipsum
+                suspendisces gravida. Risus commodo viverra.
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-5">
+            <form action="#" method="post" class="contact-wrapper">
+              {%  csrf_token %}
+              <input type="text" name="name" id="name" placeholder="Full Name">
+              <input type="email" name="email" id="email" placeholder="Email Address">
+              <textarea name="message" id="message" placeholder="Your Message"></textarea>
+              <button class="submit-btn2" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  {%  endblock %}

@@ -1,5 +1,7 @@
-from django.contrib import admin
-from .models import *
-# Register your models here.
+from django.contrib.admin import ModelAdmin, register
+from .models import Contact
 
-admin.site.register(Contact)
+
+@register(Contact)
+class MaterialPersonAdmin(ModelAdmin):
+    icon_name = 'place'

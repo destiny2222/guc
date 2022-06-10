@@ -29,7 +29,7 @@ class ShippingAddress(models.Model):
     address = models.CharField(default='enter address',max_length = 150)
    
     def __str__(self):
-        return f'{self.book} {self.fullname}'        
+        return self.name     
         
      
        

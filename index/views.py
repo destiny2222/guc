@@ -99,34 +99,35 @@ def detailView(request, slug):
 	return render(request,'blog_details.html', content)                      
 
 def process_payment(name,email,price,phone,):
-     auth_token= env('SECRET_KEY')
-     hed = {'Authorization': 'Bearer ' + auth_token}
-     data = {
-                "tx_ref":''+str(math.floor(1000000 + random.random()*9000000)),
-                "amount":price,
-                "currency":"KES",
-                "redirect_url":"http://localhost:8000/callback",
-                "payment_options":"card",
-                "meta":{
-                    "consumer_id":23,
-                    "consumer_mac":"92a3-912ba-1192a"
-                },
-                "customer":{
-                    "email":email,
-                    "phonenumber":phone,
-                    "name":name
-                },
-                "customizations":{
-                    "title":"Supa Electronics Store",
-                    "description":"Best store in town",
-                    "logo":"https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-                }
-                }
-     url = ' https://api.flutterwave.com/v3/payments'
-     response = requests.method(url, json=data, headers=hed)
-     response=response.json()
-     link=response['data']['link']
-     return link
+	auth_token= env('SECRET_KEY')
+	header = {'Authorization': 'Bearer ' + auth_token}
+	data = {
+			"tx_ref":''+str(math.floor(1000000 + random.random()*9000000)),
+			"amount":price,
+			"currency":"KES",
+			"redirect_url":"http://localhost:1234/callback",
+			"payment_options":"card",
+			"meta":{
+				"consumer_id":23,
+				"consumer_mac":"92a3-912ba-1192a"
+			},
+			"customer":{
+				"email":email,
+				"phonenumber":phone,
+				"name":name
+			},
+			"customizations":{
+				"title":"Supa Electronics Store",
+				"description":"Best store in town",
+				"logo":"https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+			}
+			}
+	url = 'https://api.flutterwave.com/v3/payments'
+	response = requests.request('GET',url, json=data, headers=header)
+	print(response)
+	response=response.json()
+	link=response['data']['link']
+	return link
 
 @require_http_methods(['GET', 'POST'])
 def payment_response(request):
